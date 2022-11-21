@@ -1,15 +1,15 @@
-<h1>Welcome to browery</h1>
+<h1>Welcome to brewery</h1>
 
-<div class="card-trip">
-  <% @breweries.each do |browery| %>
-  <img src=""/>
-  <div class="card-trip-infos">
-    <div>
-      <h2><%=browery.name %></h2>
-      <p><%= browery.description%></p>
-      <p><%=browery.rating%></p>
-    </div>
-    <h2 class="card-trip-pricing"><%=browery.price%></h2>
+<div class="card-trip m-5">
+  <% @breweries.each do |brewery| %>
+    <%= link_to brewery_path(brewery), class:"text-decoration-none" do %>
+      <img src=""/>
+      <div class="card-category">
+      <h2><%=brewery.name %></h2>
+      <p><%= brewery.description%></p>
+      <p><%=brewery.rating%></p>
+      <h2 class="card-trip-pricing"><%=brewery.price%></h2>
+      <%end%>
     <%end%>
   </div>
 </div>
