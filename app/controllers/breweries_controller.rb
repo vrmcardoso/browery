@@ -20,6 +20,8 @@ class BreweriesController < ApplicationController
     @brewery.user = current_user
     authorize @brewery
     @brewery.save
+
+    redirect_to breweries_path
   end
 
   def edit
@@ -28,17 +30,26 @@ class BreweriesController < ApplicationController
   end
 
   def update
+    @brewery = Brewery.fing(params[:id])
     authorize @brewery
+    @brewery.update(brewery_params)
+    @brewery.user = current_user
+
+    redirect_to breweries_path
   end
 
   def destroy
+    @brewery = Brewery.find(params[:id])
     authorize @brewery
+    @brewery.destroy
+
+    redirect_to breweries_path, status: :see_other
   end
 
   private
 
   def brewery_params
-    params.require(:bookmark).permit(:comment, :movie_id,)
+    params.require(:brewery).permit(:name, :address, :description, :price, :size, :capacity, :rating, photos: [])
   end
 
 end
