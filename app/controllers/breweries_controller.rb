@@ -33,6 +33,7 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.fing(params[:id])
     authorize @brewery
     @brewery.update(brewery_params)
+    @brewery.user = current_user
 
     redirect_to breweries_path
   end
@@ -48,7 +49,7 @@ class BreweriesController < ApplicationController
   private
 
   def brewery_params
-    params.require(:bookmark).permit(:name, :address, :description, :price, :size, :capacity)
+    params.require(:brewery).permit(:name, :address, :description, :price, :size, :capacity, :rating, photos: [])
   end
 
 end
