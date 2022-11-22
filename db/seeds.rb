@@ -23,7 +23,7 @@ end
 
 10.times do
   Brewery.create(
-    description: Faker::Lorem.paragraph(sentence_count: rand(3..5)),
+    description: Faker::Lorem.paragraph(sentence_count: rand(6..12)),
     name: Faker::Beer.brand,
     price: rand(50.0..250.0).round(2),
     rating: rand(1.0..5.0).round(1),

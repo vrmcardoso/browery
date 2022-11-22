@@ -1,9 +1,9 @@
 
 <div class="container py-1">
   <div class="row justify-content-center" >
-    <div class="col-8">
-      <h1> Hello Brewery </h1>
-      <p> rating </p>
+    <div class="col-10">
+      <h1> <%= @brewery.name  %> </h1>
+      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %> </p>
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,6 +33,46 @@
     </div>
   </div>
 </div>
+<div class="container py-3">
+  <div class="row justify-content-center" >
+      <div class="col-6">
+        <p> <i class="fa-sharp fa-solid fa-maximize"></i> <%= @brewery.size %> Square meters <i class="fa-solid fa-beer-mug-empty"></i> <%= @brewery.capacity %> Barrels of annual production </p>
+        <h4>Description</h4>
+        <p> <%= @brewery.description %></p>
+        <h3> What the space offers </h3>
+        <div>
+          <p> <i class="fa-solid fa-truck-fast"></i> Delivery </p>
+          <p> <i class="fa-solid fa-wine-bottle"></i> Bottling</p>
+          <p> <i class="fa-solid fa-tags"></i> Bottle labeling</p>
+        </div>
+      </div>
+      <div class="col-4 py-4 my-2">
+        <div class="border rounded p-4">
+          <h4> Book this Brewery! </h4>
+          <div class="d-flex justify-content-between" >
+            <p> € <%= @brewery.price %> a day</p>
+            <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> </p>
+          </div>
+          <form action="#">
+            <div class="mb-3">
+              <label for="" class="form-label"> Arrival Date </label>
+              <input type="text" class="form-control" placeholder="Arrival date">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label"> Departure Date </label>
+              <input type="text" class="form-control" placeholder="Departure date">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label"> Message </label>
+              <input type="text" class="form-control" placeholder="Write your message here">
+            </div>
+            <input type="submit" class="btn btn-primary rounded w-100" placeholder="Book">
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
 
 <%# <% if policy(@restaurant).edit? %>
   <%# <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
