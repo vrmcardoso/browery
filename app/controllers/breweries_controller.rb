@@ -25,17 +25,16 @@ class BreweriesController < ApplicationController
   end
 
   def edit
-    authorize @brewery
     @brewery = Brewery.find(params[:id])
+    authorize @brewery
   end
 
   def update
-    @brewery = Brewery.fing(params[:id])
+    @brewery = Brewery.find(params[:id])
     authorize @brewery
     @brewery.update(brewery_params)
-    @brewery.user = current_user
 
-    redirect_to breweries_path
+    redirect_to brewery_path(@brewery)
   end
 
   def destroy
@@ -50,6 +49,10 @@ class BreweriesController < ApplicationController
 
   def brewery_params
     params.require(:brewery).permit(:name, :address, :description, :price, :size, :capacity, :rating, photos: [])
+  end
+
+  def brewery_photo_param
+    params.require(:brewery).permit(photos: [])
   end
 
 end
