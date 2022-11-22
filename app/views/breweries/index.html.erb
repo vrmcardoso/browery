@@ -1,17 +1,3 @@
-<h1>Welcome to brewery</h1>
 
-<div class="card-trip m-5">
-  <% @breweries.each do |brewery| %>
-    <%= link_to brewery_path(brewery), class:"text-decoration-none" do %>
-      <img src=""/>
-      <div class="card-category">
-      <h2><%=brewery.name %></h2>
-      <p><%= brewery.description%></p>
-      <p><%=brewery.rating%></p>
-      <h2 class="card-trip-pricing"><%=brewery.price%></h2>
-      <%end%>
-    <%end%>
-  </div>
-</div>
 
-<%# <%= link_to "New restaurant", new_restaurant_path if policy(Restaurant).new? %> %>
+<%# <%= link_to "New restaurant", new_restaurant_path if policy(Restaurant).new? %>
