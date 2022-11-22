@@ -1,13 +1,13 @@
 <div class="container bg-white">
-  <h1>New Brewery</h1>
+  <h1>Edit Brewery: <%= @brewery.name %></h1>
     <%= simple_form_for @brewery do |f| %>
       <%= f.input :name %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :address %>
-      <%= f.input :size, label: "Size (square meters)" %>
-      <%= f.input :capacity, label: "Capacity (barrels per year)" %>
+      <%= f.input :size %>
+      <%= f.input :capacity %>
       <%= f.input :rating %>
       <%= f.button :submit, class: "btn btn-primary"%>
     <% end %>
