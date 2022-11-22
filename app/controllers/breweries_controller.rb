@@ -2,11 +2,11 @@ class BreweriesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @breweries = Brewery.all
     @breweries = policy_scope(Brewery)
   end
 
   def show
+    @brewery = Brewery.find(params[:id])
     authorize @brewery
   end
 
@@ -16,13 +16,15 @@ class BreweriesController < ApplicationController
   end
 
   def create
-    @brewery = Brewery.new(restaurant_params)
+    @brewery = Brewery.new(brewery_params)
     @brewery.user = current_user
     authorize @brewery
+    @brewery.save
   end
 
   def edit
     authorize @brewery
+    @brewery = Brewery.find(params[:id])
   end
 
   def update
@@ -31,6 +33,12 @@ class BreweriesController < ApplicationController
 
   def destroy
     authorize @brewery
+  end
+
+  private
+
+  def brewery_params
+    params.require(:bookmark).permit(:comment, :movie_id,)
   end
 
 end
