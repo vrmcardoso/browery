@@ -1,0 +1,6 @@
+<h1>New Brewery</h1>
+  <%= simple_form_for @brewery do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "btn btn-primary"%>
+  <% end %>
