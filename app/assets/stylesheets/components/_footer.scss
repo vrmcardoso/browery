@@ -1,0 +1,53 @@
+.footer {
+  background: #e3e5b8;
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  height: 100px;
+  padding: 30px 50px;
+  color: rgba(105, 102, 102, 0.671);
+  margin-top: 10px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+.footer-mid {
+  vertical-align: baseline;
+}
+
+.footer-left {
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.footer-text {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.user-icon {
+  vertical-align: bottom;
+  text-align: justify;
+}
