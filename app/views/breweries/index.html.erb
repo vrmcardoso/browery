@@ -16,7 +16,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <h2 class="head-text">Popular</h2>
 <div class="cards container col-10">
   <% @ranked_breweries.first(4).each do |brewery| %>
@@ -42,8 +41,6 @@
 
 
 <h2 class="head-text">Cheapest price</h2>
-=======
->>>>>>> master
 <div class="cards container col-10">
   <% @cheapest_breweries.first(4).each do |brewery| %>
     <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
