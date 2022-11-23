@@ -16,16 +16,16 @@
   </div>
 </div>
 
-
-
+<h2 class="head-text">Popular</h2>
 <div class="cards container col-10">
-  <% @breweries.each do |brewery| %>
+  <% @ranked_breweries.first(4).each do |brewery| %>
     <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
       <div class="card-brewery">
         <div class="card-img">
           <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
           <%#= cl_image_tag brewery.photo.key %>
         </div>
+
         <div class="card-text">
           <h2><%=brewery.name %></h2>
           <p><strong>size: </strong><%=brewery.size%></p>
@@ -33,6 +33,100 @@
           <p><%=brewery.price%> <i class="fa-solid fa-money-bill"></i></p>
           <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
         </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<h2 class="head-text">Cheapest price</h2>
+<div class="cards container col-10">
+  <% @cheapest_breweries.first(4).each do |brewery| %>
+    <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
+      <div class="card-brewery">
+        <div class="card-img">
+          <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
+          <%#= cl_image_tag brewery.photo.key %>
+        </div>
+
+        <div class="card-text">
+          <h2><%=brewery.name %></h2>
+          <p><strong>size: </strong><%=brewery.size%></p>
+          <p><strong>capacity: </strong><%=brewery.capacity%></p>
+          <p><%=brewery.price%> <i class="fa-solid fa-money-bill"></i></p>
+          <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+        </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<h2 class="head-text">Newest breweries</h2>
+<div class="cards container col-10">
+  <% @breweries.last(4).each do |brewery| %>
+    <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
+      <div class="card-brewery">
+        <div class="card-img">
+          <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
+          <%#= cl_image_tag brewery.photo.key %>
+        </div>
+
+        <div class="card-text">
+          <h2><%=brewery.name %></h2>
+          <p><strong>size: </strong><%=brewery.size%></p>
+          <p><strong>capacity: </strong><%=brewery.capacity%></p>
+          <p><%=brewery.price%> <i class="fa-solid fa-money-bill"></i></p>
+          <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+        </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<h2 class="head-text">Close to you</h2>
+<div class="cards container col-10">
+  <% @breweries.last(4).each do |brewery| %>
+    <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
+      <div class="card-brewery">
+        <div class="card-img">
+          <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
+          <%#= cl_image_tag brewery.photo.key %>
+        </div>
+
+        <div class="card-text">
+          <h2><%=brewery.name %></h2>
+          <p><strong>size: </strong><%=brewery.size%></p>
+          <p><strong>capacity: </strong><%=brewery.capacity%></p>
+          <p><%=brewery.price%> <i class="fa-solid fa-money-bill"></i></p>
+          <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+        </div>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<h2 class="head-text">Available right now..</h2>
+<div class="cards container col-10">
+  <% @breweries.last(4).each do |brewery| %>
+    <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
+      <div class="card-brewery">
+        <div class="card-img">
+          <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
+          <%#= cl_image_tag brewery.photo.key %>
+        </div>
+
+        <div class="card-text">
+          <h2><%=brewery.name %></h2>
+          <p><strong>size: </strong><%=brewery.size%></p>
+          <p><strong>capacity: </strong><%=brewery.capacity%></p>
+          <p><%=brewery.price%> <i class="fa-solid fa-money-bill"></i></p>
+          <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+        </div>
+
       </div>
     <% end %>
   <% end %>
