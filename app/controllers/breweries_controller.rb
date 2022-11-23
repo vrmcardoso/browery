@@ -7,7 +7,8 @@ class BreweriesController < ApplicationController
 
   def index
     @breweries = policy_scope(Brewery)
-
+    @ranked_breweries = @breweries.order("rating DESC")
+    @cheapest_breweries = @breweries.order("price ASC")
   end
 
   def show
