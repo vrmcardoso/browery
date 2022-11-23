@@ -42,15 +42,17 @@
         <div class="py-3 border-top">
           <h3> What the space offers </h3>
           <p> <i class="fa-solid fa-truck-fast"></i>
-            <% if @brewery.delivery?  %> Delivery
+            <% if @brewery.delivery?  %>
+              Delivery
             <% else %>
-            <s> Delivery </s>
+              <s> Delivery </s>
             <% end  %>
           </p>
           <p> <i class="fa-solid fa-wine-bottle"></i>
-            <% if @brewery.bottling?  %> Bottling
+            <% if @brewery.bottling?  %>
+              Bottling
             <% else %>
-            <s> Bottling </s>
+              <s> Bottling </s>
             <% end %>
           </p>
           <p> <i class="fa-solid fa-tags"></i>
