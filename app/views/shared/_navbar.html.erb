@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-0">
   <div class="container-fluid">
     <%= link_to breweries_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669117639/Browery_lrnob2.png" %>
@@ -16,9 +16,6 @@
           </li>
           <li class="nav-item active">
             <%= link_to "Index", breweries_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
