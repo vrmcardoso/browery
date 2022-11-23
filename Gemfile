@@ -81,3 +81,5 @@ gem "devise"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem "pundit"
 gem "cloudinary"
+
+gem "geocoder"
