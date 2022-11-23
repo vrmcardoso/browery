@@ -1,6 +1,10 @@
 class BreweriesController < ApplicationController
   skip_before_action :authenticate_user!
 
+  def home
+    @breweries = policy_scope(Brewery)
+  end
+
   def index
     @breweries = policy_scope(Brewery)
   end

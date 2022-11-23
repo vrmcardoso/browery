@@ -8,6 +8,10 @@ class ApplicationPolicy
     @record = record
   end
 
+  def home?
+    false
+  end
+
   def index?
     false
   end

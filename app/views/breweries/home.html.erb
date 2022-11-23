@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dq0xq762v/image/upload/v1669135545/beer_header_a7oscu.webp);">
+  <div class="container">
+    <h1 class="text-center"><strong>Welcome to Browery</strong></h1>
+    <h2 class="text-center text-white">The brotherhood of brewers</h2>
+    <div class="search-bar">
+        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-flat text-white">
+            Search <i class="fa-solid fa-beer-mug-empty"></i>
+            </button>
+        </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h1>Welcome to Browery, the brotherhood of brewers</h1>
+<br>
+<h2>Craft beer is the future</h2>
+<p>Everyday more and more people are joining the craft beer revolution. They want to create their own beers and enjoy a special beverage instead of the same industrial crap.</p>
+<br>
+<h2>But its' not easy</h2>
+<p>It's easy to learn how to make craft beer online, unfortunately, the gear needed is expensive and takes lots of room.</p>
+<br>
+<h3>Enter Browery</h3>
+<p>Easily find breweries equipped with the best gear and tools to help you produce your very own batches of craft beer. And if already own the equipment, easily list your brewery to make the most of your investment.</p>
