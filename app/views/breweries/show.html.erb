@@ -3,7 +3,11 @@
   <div class="row justify-content-center" >
     <div class="col-10">
       <h1> <%= @brewery.name  %> </h1>
-      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %> </p>
+      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
+        <% if policy(@brewery).edit? %>
+          <%= link_to "Edit this restaurant", edit_brewery_path(@brewery) %>
+        <% end %>
+       </p>
       <div id="carouselExampleIndicators" class="carousel slide brower-carousel" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -50,7 +54,7 @@
             <% end %>
           </p>
           <p> <i class="fa-solid fa-tags"></i>
-            <% if @brewery.bottling?  %> Bottle labeling
+            <% if @brewery.bottle_labeling?  %> Bottle labeling
             <% else %>
             <s> Bottle labeling </s>
             <% end %>
@@ -83,10 +87,12 @@
     </div>
   </div>
 </div>
+<div class="row justify-content-center" >
+  <div class="col-10" id="map" style="witdh: 100%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
-
-<%# <% if policy(@restaurant).edit? %>
-  <%# <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
-<%# <% end %> %>
-
-<%# <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %> %> %> %>
+<%# <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
