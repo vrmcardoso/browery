@@ -3,7 +3,11 @@
   <div class="row justify-content-center" >
     <div class="col-10">
       <h1> <%= @brewery.name  %> </h1>
-      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %> </p>
+      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
+        <% if policy(@brewery).edit? %>
+          <%= link_to "Edit this restaurant", edit_brewery_path(@brewery) %>
+        <% end %>
+       </p>
       <div id="carouselExampleIndicators" class="carousel slide brower-carousel" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -85,8 +89,5 @@
 </div>
 
 
-<%# <% if policy(@restaurant).edit? %>
-  <%# <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %>
-<%# <% end %> %>
 
-<%# <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %> %> %> %>
+<%# <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
