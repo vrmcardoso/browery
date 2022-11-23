@@ -16,15 +16,12 @@
   </div>
 </div>
 
-
-
 <div class="cards container col-10">
   <% @breweries.each do |brewery| %>
     <%= link_to brewery_path(brewery), class: "text-decoration-none" do %>
       <div class="card-brewery">
         <div class="card-img">
-          <%= image_tag "https://res.cloudinary.com/dmskc1fi2/image/upload/v1669120290/beer_mobile_rsei0i.jpg" %>
-          <%#= cl_image_tag brewery.photo.key %>
+          <%= cl_image_tag brewery.photos[0].key %>
         </div>
         <div class="card-text">
           <h2><%=brewery.name %></h2>
@@ -37,4 +34,3 @@
     <% end %>
   <% end %>
 </div>
-
