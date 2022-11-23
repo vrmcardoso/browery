@@ -6,9 +6,13 @@
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :address %>
-      <%= f.input :size %>
-      <%= f.input :capacity %>
-      <%= f.input :rating %>
+      <%= f.input :size, label: "Size (square meters)" %>
+      <%= f.input :capacity, label: "Capacity (barrels per year)" %>
+      <strong> Additional Features </strong>
+      <p> </p>
+      <%= f.input :delivery, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
+      <%= f.input :bottling, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
+      <%= f.input :bottle_labeling, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
       <%= f.button :submit, class: "btn btn-primary"%>
     <% end %>
 </div>
