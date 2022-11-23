@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_103640) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_140757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_103640) do
     t.boolean "delivery"
     t.boolean "bottling"
     t.boolean "bottle_labeling"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_breweries_on_user_id"
   end
 

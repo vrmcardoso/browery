@@ -7,11 +7,19 @@ class BreweriesController < ApplicationController
 
   def index
     @breweries = policy_scope(Brewery)
+
   end
 
   def show
     @brewery = Brewery.find(params[:id])
     authorize @brewery
+
+    @markers = [
+      {
+        lat: @brewery.latitude,
+        lng: @brewery.longitude
+      }
+    ]
   end
 
   def new
