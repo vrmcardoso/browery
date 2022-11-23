@@ -1,43 +1,63 @@
 .cards {
+    align-items: center;
+    flex: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
-    justify-items: center;
-    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
   }
 
-.card {
+.card-brewery {
     overflow: hidden;
-    background: rgb(255, 247, 141);
+    background: rgb(219, 219, 219);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 15px;
     margin-right: 0;
-    width: 420px;
-
+    border: 1px solid #ccc;
+    min-height: 326px;
 }
 
-.card h2 {
+.card-brewery img {
+    object-position: center;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-img {
+    height: 40%;
+}
+
+.card-text {
+    position: relative;
+    height: 60%;
+    padding: 16px;
+}
+.card-brewery h2 p {
+    padding: 0 20px 20px
+}
+
+.card-rating {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    font-weight: bold;
+}
+
+.card-brewery h2 {
     font-size: 19px;
     font-weight: bold;
     margin: 0;
     color: black;
 }
 
-.card p {
+.card-brewery p {
     font-size: 15px;
     margin: 0;
     color: black;
 }
 
-.card .card-info {
+.card-brewery .card-brewery-info {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-}
-
-.card .card-numb {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: end;
 }
