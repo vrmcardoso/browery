@@ -1,10 +1,18 @@
-.navbar-lewagon {
+.navbar-lewagon-banner {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: fixed;
   top: -10;
   width: 100%;
   z-index: 1000;
+}
+.navbar-lewagon-others {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: top;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
 }
 
 .nav-logo {
@@ -44,4 +52,8 @@
 .navbar-links {
   justify-self: end;
   margin-right: 10px;
+}
+
+.nav-link-orange {
+  color: #F9C200;
 }
