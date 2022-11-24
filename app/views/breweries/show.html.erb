@@ -68,9 +68,11 @@
             <p> € <%= @brewery.price %> a day</p>
             <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> </p>
           </div>
-          <%= simple_form_for [@brewery, @booking] do |f| %>
-            <%= f.input :start_date, label: "Arrival date", error: "Arrival date is mandatory, please specify one" %>
-            <%= f.input :end_date, label: "Departure date", error: "Departure date is mandatory, please specify one" %>
+          <%= simple_form_for [@brewery, @booking], data: { controller: 'flatpickr' } do |f| %>
+             <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+             <%#= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, id: "end_time" %>
+            <%# <%= f.input :start_date, as: :string, label: "Arrival date", error: "Arrival date is mandatory, please specify one" %>
+            <%# <%= f.input :end_date, as: :string, label: "Departure date", error: "Departure date is mandatory, please specify one" %>
             <%= f.submit class: "btn btn-primary w-100", label: "Book" %>
           <% end %>
         </div>
