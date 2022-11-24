@@ -13,6 +13,7 @@ class BreweriesController < ApplicationController
 
   def show
     @brewery = Brewery.find(params[:id])
+    @booking = Booking.new
     authorize @brewery
 
     @markers = [
