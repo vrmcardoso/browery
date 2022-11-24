@@ -68,21 +68,11 @@
             <p> € <%= @brewery.price %> a day</p>
             <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> </p>
           </div>
-          <form action="#">
-            <div class="mb-3">
-              <label for="" class="form-label"> Arrival Date </label>
-              <input type="text" class="form-control" placeholder="Arrival date">
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label"> Departure Date </label>
-              <input type="text" class="form-control" placeholder="Departure date">
-            </div>
-            <div class="mb-3">
-              <label for="" class="form-label"> Message </label>
-              <input type="text" class="form-control" placeholder="Write your message here">
-            </div>
-            <input type="submit" class="btn btn-primary rounded w-100" placeholder="Book">
-          </form>
+          <%= simple_form_for [@brewery, @booking] do |f| %>
+            <%= f.input :start_date, label: "Arrival date", error: "Arrival date is mandatory, please specify one" %>
+            <%= f.input :end_date, label: "Departure date", error: "Departure date is mandatory, please specify one" %>
+            <%= f.submit class: "btn btn-primary w-100", label: "Book" %>
+          <% end %>
         </div>
     </div>
   </div>

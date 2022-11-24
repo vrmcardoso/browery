@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "breweries#home"
   resources :breweries, only: [:home, :index, :new, :create, :edit, :show, :update] do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:create]
   end
   resources :users, only: [:new, :create, :edit, :show]
 end
