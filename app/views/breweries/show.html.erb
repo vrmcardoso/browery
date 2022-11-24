@@ -5,7 +5,7 @@
       <h1> <%= @brewery.name  %> </h1>
       <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
         <% if policy(@brewery).edit? %>
-          <%= link_to "Edit this restaurant", edit_brewery_path(@brewery) %>
+          <%= link_to "Edit this brewery", edit_brewery_path(@brewery) %>
         <% end %>
        </p>
       <div id="carouselExampleIndicators" class="carousel slide brower-carousel" data-bs-ride="carousel">
