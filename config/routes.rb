@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :ratings, only: [:new, :create]
   end
   resources :users, only: [:new, :create, :edit, :show]
+  get "profile", to: "pages#profile"
 end
