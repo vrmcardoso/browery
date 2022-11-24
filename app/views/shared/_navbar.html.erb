@@ -1,30 +1,65 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon p-0 fixed-nav-bar"
-  data-controller="navbar"
-  data-action="scroll@window->navbar#updateNavbar">
-  <div class="container-fluid">
-    <%= link_to breweries_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669117639/Browery_lrnob2.png", class: "avatar"%>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<% if current_page?(root_path) || current_page?(breweries_path) %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-banner p-0 fixed-nav-bar"
+    data-controller="navbar"
+    data-action="scroll@window->navbar#updateNavbar">
+    <div class="container-fluid nav-logo">
+      <%= link_to breweries_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669117639/Browery_lrnob2.png", class: "avatar"%>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <div class="nav-search-bar">
+      <%= form_with url: breweries_path, method: :get, class: "d-flex" do %>
+      <div class="search-form-control form-group d-none" data-navbar-target="navsearch">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a Brewery"
+          %>
+          <button class="btn btn-flat p-0" style="color: rgb(169, 169, 169);">
+            <i class="fa-solid fa-beer-mug-empty"></i>  
+          </button>
+        <% end %>
+      </div>
+    </div>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Index", breweries_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="collapse navbar-collapse navbar-links" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <% if !current_page?(root_path) %>
+              <li class="nav-item active">
+                <%= link_to "Home", root_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <% if !current_page?(breweries_path) %>
+              <li class="nav-item active">
+                <%= link_to "Index", breweries_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669285430/profile-silhouette_osx7tn.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "List my brewery", new_brewery_path, class: "dropdown-item" %>
+                <%= link_to "Profile", "#", class: "dropdown-item" %>
+                <%= button_to "log out", destroy_user_session_path, method: :delete, data: {turbo:false}, class: "dropdown-item" %>
+                <%#= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
           <% else %>
-            <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669285430/profile-silhouette_osx7tn.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <li class="nav-item d-flex">
+              <p class="login m-0"><i class="fa-regular fa-user nav-link user-icon"></i>
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %></p>
+            </li>
           <% end %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "List my brewery", new_brewery_path, class: "dropdown-item" %>
               <%= link_to "Profile", profile_path(), class: "dropdown-item" %>
@@ -39,7 +74,52 @@
           </li>
         <% end %>
       </ul>
+
+        </ul>
+      </div>
+
   </div>
+  <% else %>
+
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-others p-0 fixed-nav-bar">
+    <div class="container-fluid nav-logo">
+      <%= link_to breweries_path, class: "navbar-brand" do %>
+        <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669117639/Browery_lrnob2.png", class: "avatar"%>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
+
+    <div class="collapse navbar-collapse navbar-links" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+              <li class="nav-item active">
+                <%= link_to "Home", root_path, class: "nav-link nav-link-orange" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Index", breweries_path, class: "nav-link nav-link-orange" %>
+              </li>
+            <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/dq0xq762v/image/upload/v1669285430/profile-silhouette_osx7tn.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "List my brewery", new_brewery_path, class: "dropdown-item" %>
+                <%= link_to "Profile", profile_path(), class: "dropdown-item" %>
+                <%= button_to "log out", destroy_user_session_path, method: :delete, data: {turbo:false}, class: "dropdown-item" %>
+                <%#= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item d-flex">
+              <p class="login m-0"><i class="fa-regular fa-user nav-link user-icon"></i>
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %></p>
+            </li>
+          <% end %>
+        </ul>
+      </div>
   </div>
-</div>
+  <% end %>

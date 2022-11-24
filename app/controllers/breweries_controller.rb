@@ -6,7 +6,12 @@ class BreweriesController < ApplicationController
   end
 
   def index
-    @breweries = policy_scope(Brewery)
+    if params[:query].present?
+      @breweries = policy_scope(Brewery.where("name ILIKE ?", "%#{params[:query]}%"))
+      #@breweries = policy_scope(Brewery)
+    else
+      @breweries = policy_scope(Brewery.all)
+    end
     @ranked_breweries = @breweries.order("rating DESC")
     @cheapest_breweries = @breweries.order("price ASC")
   end
