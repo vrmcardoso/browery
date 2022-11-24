@@ -1,6 +1,5 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: transparent;
   position: fixed;
   top: -10;
   width: 100%;
@@ -21,4 +20,13 @@
 
 .user-icon {
   margin-top: 2px;
+}
+
+.navbar-lewagon-transperant {
+  background-color: transparent;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  transition: 0.5s background-color ease;
 }
