@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 16px;
+    margin-bottom: 40px;
   }
 
 .card-brewery {
@@ -11,7 +12,7 @@
     background: rgb(219, 219, 219);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 15px;
-    margin-right: 0;
+    margin-right: 14px;
     border: 1px solid #ccc;
     min-height: 326px;
 }
@@ -62,8 +63,3 @@
     padding: 20px;
 }
 
-.head-text {
-  width: 90%;
-  margin-left: auto;
-  margin-top: 10px;
-}
