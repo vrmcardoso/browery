@@ -34,3 +34,26 @@
     outline: none !important;
     box-shadow: 5px 4px 9px rgba(0,0,0,0.28);
   }
+
+  .nav-search-bar .form-control {
+    height: 3.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #e7e7e7e0;
+    border-radius: 50px;
+    width: 260px;
+    height: 40px;
+    background-color: transparent;
+    border: 3px solid rgb(169, 169, 169);
+    color: rgb(169, 169, 169);
+  }
+
+  .disapear {
+    height: 3.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border-radius: 50px;
+    width: 260px;
+    height: 40px;
+    background-color: transparent;
+    border: transparent;
+    color: transparent;
+  }

@@ -1,8 +1,14 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   position: fixed;
   top: -10;
   width: 100%;
+  z-index: 1000;
+}
+
+.nav-logo {
+  justify-self: start;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -29,4 +35,13 @@
 .navbar-lewagon-white {
   background-color: white;
   transition: 0.5s background-color ease;
+}
+
+.nav-search-bar {
+  justify-self: center;
+}
+
+.navbar-links {
+  justify-self: end;
+  margin-right: 10px;
 }
