@@ -4,12 +4,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.brewery = @brewery
+    @booking.end_date = params[:booking][:start_date].split[2]
     authorize @booking
 
     if @booking.save
       redirect_to brewery_path(@brewery), notice: "Booking was sucessfully created"
     else
-      render :new, status: :unprocessable_entity
+      render "breweries/show", status: :unprocessable_entity
     end
 
   end
