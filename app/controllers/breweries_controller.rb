@@ -42,9 +42,11 @@ class BreweriesController < ApplicationController
 
     @brewery.user = current_user
     authorize @brewery
-    @brewery.save
-
-    redirect_to brewery_path(@brewery)
+    if @brewery.save
+      redirect_to brewery_path(@brewery)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
