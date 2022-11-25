@@ -1,18 +1,84 @@
-<div class="container bg-white form_container">
-  <h1>Edit Brewery: <%= @brewery.name %></h1>
+
+
+
+
+  <div>
+
+  <div class= top-text>
+    <h1>Update your information</h1>
+    <p>Change your life!</p>
+  </div>
+
+  <div class= "both-boxes col-8">
+
+  <div class= "left-box">
+<div>
+  <h1>Confused?</h1>
+  <p>There is no need. Get in touch with us in any number of ways.</p>
+</div>
+<div class="contact-info">
+
+<div class="side-by-side">
+  <p class="fa-solid fa-envelope contact-info-mini padding"></p>
+  <p>browery@bro.pt</p>
+</div>
+<div class="side-by-side">
+  <p class="fa-solid fa-phone contact-info-mini padding"></p>
+  <p>+351 6437 832 8386</p>
+</div>
+<div class="side-by-side">
+  <p class="fa-solid fa-location-dot contact-info-mini padding"></p>
+  <p>Rua de Manuel Neuer</p>
+</div>
+</div>
+
+<div></div>
+
+<div class="footer-links">
+    <a href="https://github.com/"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  </div>
+
+
+<div class="container bg-white form_container", id="right-box">
     <%= simple_form_for @brewery do |f| %>
-      <%= f.input :name %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.input :description %>
-      <%= f.input :price %>
+
+    <div class="answer-boxes">
+      <i class="form-box"><%= f.input :name %></i>
       <%= f.input :address %>
-      <%= f.input :size, label: "Size (square meters)" %>
-      <%= f.input :capacity, label: "Capacity (barrels per year)" %>
-      <strong> Additional Features </strong>
-      <p> </p>
+    </div>
+
+    <div class="answer-boxes">
+      <i class="form-box"><%= f.input :size, label: "Size (square meters)" %></i>
+      <i class="form-box"><%= f.input :capacity, label: "Barrels/year" %></i>
+      <%= f.input :price %>
+    </div>
+
+      <%=  f.input :photos, as: :file, input_html: { multiple: true } %>
+      <p> Additional Features </p>
+
+
+
+    <div class="checkboxes">
       <%= f.input :delivery, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
       <%= f.input :bottling, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
       <%= f.input :bottle_labeling, as: :boolean, boolean_style: :inline, input_html: { include_hidden: false } %>
-      <%= f.button :submit, class: "btn btn-primary"%>
+    </div>
+      <%= f.input :description %>
+
+      <%= f.button :submit, class: "btn btn-primary bg-dark bg-gradient border-0"%>
+
+
     <% end %>
+</div>
+
+
+
+</div>
+
 </div>

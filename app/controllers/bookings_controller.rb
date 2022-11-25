@@ -12,6 +12,10 @@ class BookingsController < ApplicationController
     else
       render "breweries/show", status: :unprocessable_entity
     end
+  end
+
+  def rate
+    @booking = Booking.find(params[:id])
 
   end
 
@@ -19,5 +23,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:brewery_id, :start_date, :end_date)
+  end
+
+  def rating_params
+    params.require(:booking).permit(:rating)
   end
 end

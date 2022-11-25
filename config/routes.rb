@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: "breweries#home"
+  resources :bookings, only: [] do
+    patch "rate", to: "bookings#rate"
+  end
   resources :breweries, only: [:home, :index, :new, :create, :edit, :show, :update] do
     resources :bookings, only: [:create]
   end
   resources :users, only: [:new, :create, :edit, :show]
+  get "profile", to: "pages#profile"
 end

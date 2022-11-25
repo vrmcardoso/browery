@@ -84,6 +84,7 @@
               <p>Cleaning fee €</p>
               <p>Service fee €</p>
             <div>
+             <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
             <%= f.submit class: "btn btn-primary w-100", label: "Book" %>
           <% end %>
         </div>
