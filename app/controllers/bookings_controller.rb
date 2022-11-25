@@ -14,9 +14,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def rate
+    @booking = Booking.find(params[:id])
+
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:brewery_id, :start_date, :end_date)
+  end
+
+  def rating_params
+    params.require(:booking).permit(:rating)
   end
 end
