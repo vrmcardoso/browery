@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "breweries#home"
   resources :bookings, only: [] do
-    patch "rate", to: "bookings#rate"
+    member do
+      patch "rate"
+    end
   end
   resources :breweries, only: [:home, :index, :new, :create, :edit, :show, :update] do
     resources :bookings, only: [:create]

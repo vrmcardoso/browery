@@ -14,4 +14,8 @@ class BookingPolicy < ApplicationPolicy
       true
     end
 
+    def rate?
+      true
+    end
+
 end
