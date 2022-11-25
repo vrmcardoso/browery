@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @booking.end_date = params[:booking][:start_date].split[2]
     authorize @booking
 
+
     if @booking.save
       redirect_to brewery_path(@brewery), notice: "Booking was sucessfully created"
     else
@@ -15,10 +16,10 @@ class BookingsController < ApplicationController
   end
 
   def rate
-    raise
     @booking = Booking.find(params[:id])
     @booking.update(rating_params)
-
+    authorize @booking
+    
     redirect_to profile_path
   end
 
