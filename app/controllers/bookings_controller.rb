@@ -15,8 +15,11 @@ class BookingsController < ApplicationController
   end
 
   def rate
+    raise
     @booking = Booking.find(params[:id])
+    @booking.update(rating_params)
 
+    redirect_to profile_path
   end
 
   private
@@ -26,6 +29,6 @@ class BookingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:booking).permit(:rating)
+    params.permit(:rating)
   end
 end
