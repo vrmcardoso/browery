@@ -15,18 +15,18 @@
   display: flex;
   align-items: center;
 }
+
 .footer-links a {
-  color: black;
+  color: rgb(51, 51, 51);
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+
 }
 .footer-links a:hover {
   opacity: 1;
-}
-.footer .fa-heart {
-  color: #D23333;
+
 }
 
 .footer-mid {
@@ -50,4 +50,14 @@
 .user-icon {
   vertical-align: bottom;
   text-align: justify;
+}
+
+.side-by-side {
+  display: flex;
+  align-items: center;
+}
+
+.padding {
+  padding-right: 10px;
+
 }
