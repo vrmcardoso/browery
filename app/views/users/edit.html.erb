@@ -1,12 +1,19 @@
-<div class="container bg-white form_container">
-  <h1>Edit Profile: <%= @user.first_name %> <%= @user.last_name %></h1>
+<div class="container bg-white login-form-box">
+  <h2>Edit Profile: <%= @user.first_name %> <%= @user.last_name %></h2>
     <%= simple_form_for @user do |f| %>
-      <%= f.input :first_name %>
+
+<div class="answer-boxes">
+      <i class="form-box"><%= f.input :first_name %></i>
       <%= f.input :last_name %>
-      <%= f.input :username %>
+</div>
+<div class="answer-boxes">
+     <i class="form-box"><%= f.input :username %></i>
       <%= f.input :email %>
-      <%= f.input :photo, as: :file %>
+</div>
       <%= f.input :address %>
-      <%= f.button :submit, class: "btn btn-primary"%>
+      <%= f.input :photo, as: :file %>
+      <div>
+      <%= f.button :submit, class: "btn btn-primary bg-warning bg-gradient border-0"%>
+      </div>
     <% end %>
 </div>
