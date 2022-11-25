@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :breweries, only: [:home, :index, :new, :create, :edit, :show, :update] do
     resources :bookings, only: [:create]
   end
-  resources :users, only: [:new, :create, :edit, :show]
+  resources :users, only: [:new, :create, :edit, :show, :update]
   get "profile", to: "pages#profile"
+
 end
