@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings
+  has_many :breweries
   has_many :users
   has_one_attached :photo
   validates :username, uniqueness: true
