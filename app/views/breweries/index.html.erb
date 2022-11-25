@@ -10,7 +10,7 @@
             placeholder: "Find a Brewery"
           %>
           <button class="btn btn-flat text-white">
-            <i class="fa-solid fa-beer-mug-empty"></i>  
+            <i class="fa-solid fa-beer-mug-empty"></i>
           </button>
         <% end %>
       </div>
@@ -35,7 +35,7 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
-              <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+              <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
             </div>
 
           </div>
@@ -60,7 +60,7 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
-              <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+              <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
             </div>
 
           </div>
@@ -84,7 +84,7 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
-              <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+              <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
             </div>
 
           </div>
