@@ -1,41 +1,35 @@
-
-<div class="container py-1">
-  <div class="row justify-content-center" >
-    <div class="col-10">
-      <h1> <%= @brewery.name  %> </h1>
-      <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
-        <% if policy(@brewery).edit? %>
-          <%= link_to "Edit this brewery", edit_brewery_path(@brewery) %>
-        <% end %>
-       </p>
-      <div id="carouselExampleIndicators" class="carousel slide brower-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div class="container m-auto mt-5">
+  <div class="row">
+    <div class="col-8">
+      <div class="card rounded-top">
+        <div id="carouselExampleIndicators" class="carousel slide brower-carousel" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% @brewery.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag(photo.key) %>
+              </div>
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <div class="carousel-inner">
-          <% @brewery.photos.each do |photo| %>
-            <div class="carousel-item active">
-              <%= cl_image_tag(photo.key) %>
-            </div>
-          <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container py-3">
-  <div class="row justify-content-center" >
-      <div class="col-6">
+      <div class="card p-4 mt-3">
+        <h1> <%= @brewery.name  %> </h1>
+        <p> 
+          <i class="fa-solid fa-star"></i> <%= @brewery.rating %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
+        </p>
         <p> <i class="fa-sharp fa-solid fa-maximize"></i> <%= @brewery.size %> Square meters <i class="fa-solid fa-beer-mug-empty"></i> <%= @brewery.capacity %> Barrels of annual production </p>
         <h4>Description</h4>
         <p> <%= @brewery.description %></p>
@@ -44,43 +38,57 @@
           <p> <i class="fa-solid fa-truck-fast"></i>
             <% if @brewery.delivery?  %> Delivery
             <% else %>
-            <s> Delivery </s>
+              <s> Delivery </s>
             <% end  %>
           </p>
           <p> <i class="fa-solid fa-wine-bottle"></i>
             <% if @brewery.bottling?  %> Bottling
             <% else %>
-            <s> Bottling </s>
+              <s> Bottling </s>
             <% end %>
           </p>
           <p> <i class="fa-solid fa-tags"></i>
             <% if @brewery.bottle_labeling?  %> Bottle labeling
             <% else %>
-            <s> Bottle labeling </s>
+              <s> Bottle labeling </s>
             <% end %>
           </p>
+          <% if policy(@brewery).edit? %>
+            <%= link_to "Edit this Brewery", edit_brewery_path(@brewery), :class => "btn btn-outline-warning" %>
+          <% end %>
         </div>
       </div>
-      <div class="col-4 py-4 my-2">
-        <div class="border rounded p-4">
+      <div class="card mt-3">
+        <div id="map" style="witdh: 100%; height: 400px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-4">
+      <div class="sticky-top">
+        <div class="card p-4">
           <h4> Book this Brewery! </h4>
           <div class="d-flex justify-content-between" >
             <p> € <%= @brewery.price %> a day</p>
             <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating %> </p>
           </div>
           <%= simple_form_for [@brewery, @booking], data: { controller: 'flatpickr' } do |f| %>
-             <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+            <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+            <%#= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } }, id: "end_time" %>
+            <%# <%= f.input :start_date, as: :string, label: "Arrival date", error: "Arrival date is mandatory, please specify one" %>
+            <%# <%= f.input :end_date, as: :string, label: "Departure date", error: "Departure date is mandatory, please specify one" %>
+            <div>
+              <p>Cleaning fee €</p>
+              <p>Service fee €</p>
+            <div>
             <%= f.submit class: "btn btn-primary w-100", label: "Book" %>
           <% end %>
         </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="row justify-content-center" >
-  <div class="col-10" id="map" style="witdh: 100%; height: 300px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
