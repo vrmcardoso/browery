@@ -35,7 +35,9 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
+              <% if brewery.rating %>
               <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
+              <% end %>
             </div>
 
           </div>
@@ -60,7 +62,9 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
-              <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
+              <% if brewery.rating %>
+                <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
+              <% end %>
             </div>
 
           </div>
@@ -84,7 +88,9 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
+              <% if brewery.rating %>
               <p class="card-rating"><%=brewery.rating.round(1) %><i class="fa-solid fa-star"></i></p>
+              <% end %>
             </div>
 
           </div>
@@ -108,7 +114,9 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
+              <% if brewery.rating %>
               <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+              <% end %>
             </div>
 
           </div>
@@ -132,7 +140,9 @@
               <p><strong>size: </strong><%=brewery.size%></p>
               <p><strong>capacity: </strong><%=brewery.capacity%></p>
               <p><%=brewery.price%> <i class="fa-solid fa-euro-sign"></i></p>
+              <% if brewery.rating %>
               <p class="card-rating"><%=brewery.rating %><i class="fa-solid fa-star"></i></p>
+              <% end %>
             </div>
 
           </div>

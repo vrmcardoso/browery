@@ -28,7 +28,10 @@
       <div class="card p-4 mt-3">
         <h1> <%= @brewery.name  %> </h1>
         <p>
-          <i class="fa-solid fa-star"></i> <%= @brewery.rating.round(1) %> - <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
+          <% if @brewery.rating %>
+            <i class="fa-solid fa-star"></i> <%= @brewery.rating.round(1) %> -
+          <% end %>
+          <strong>Address: </strong> <i class="fa-solid fa-location-dot"></i> <%= @brewery.address %>
         </p>
         <p> <i class="fa-sharp fa-solid fa-maximize"></i> <%= @brewery.size %> Square meters <i class="fa-solid fa-beer-mug-empty"></i> <%= @brewery.capacity %> Barrels of annual production </p>
         <h4>Description</h4>
@@ -73,7 +76,9 @@
           <h4> Book this Brewery! </h4>
           <div class="d-flex justify-content-between" >
             <p> € <%= @brewery.price %> a day</p>
-            <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating.round(1) %> </p>
+            <% if @brewery.rating %>
+              <p> <i class="fa-solid fa-star"></i> <%= @brewery.rating.round(1) %> </p>
+            <% end %>
           </div>
           <%= simple_form_for [@brewery, @booking], data: { controller: 'flatpickr' } do |f| %>
             <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
