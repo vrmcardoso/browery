@@ -1,0 +1,12 @@
+<div class="container bg-white form_container">
+  <h1>Edit Profile: <%= @user.first_name %> <%= @user.last_name %></h1>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :address %>
+      <%= f.button :submit, class: "btn btn-primary"%>
+    <% end %>
+</div>

@@ -1,3 +1,74 @@
 .form_container{
   width: 60%;
 }
+
+#right-box {
+  padding: 15px;
+  margin-left: 0px;
+  padding-left: 25px;
+  width: 650px;
+}
+
+.checkboxes {
+  justify-content:space-evenly;
+  display: flex;
+}
+
+.top-text {
+  text-align: center;
+  padding-top: 65px;
+}
+
+.both-boxes {
+  align-items:center;
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+  background-color: white;
+  align-items: stretch;
+  border-radius: 8px;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+}
+
+.left-box {
+  padding: 30px;
+  background-color: #cca000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 440px;
+  color: rgb(48, 48, 48);
+}
+
+#button-right {
+  text-align: right;
+
+}
+
+.contact-info {
+  color: rgb(48, 48, 48);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-mini {
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.answer-boxes {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.box-padding {
+  padding: 10px;
+}
+
+.form-box {
+  padding-right: 10px;
+}
