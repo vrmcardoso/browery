@@ -17,13 +17,24 @@
     <div class="col-7 p-3 my-2">
       <h1> Your Bookings </h1>
       <% @bookings.each do |booking| %>
-      <div class="card-product my-3">
-        <img <%=cl_image_tag @brewery.find_by(id: booking.brewery_id).photos[0].key, class: "profile-photo"%>
-        <div class="card-product-infos">
-          <h2 class="my-2 pb-2"> <strong> Brewery: </strong> <%= @brewery.find_by(id: booking.brewery_id).name %> </h2>
-          <p class="my-2 pb-2"> <strong> Starting Date </strong> <%= booking.start_date %> - <strong> Departure Date </strong> <%= booking.end_date %> </p>
+        <div class="card-product my-3">
+          <img <%=cl_image_tag @brewery.find_by(id: booking.brewery_id).photos[0].key, class: "profile-photo"%>
+          <div class="card-product-infos">
+            <h2 class="my-2 pb-2"> <strong> Brewery: </strong> <%= @brewery.find_by(id: booking.brewery_id).name %> </h2>
+            <p class="my-2 pb-2"> <strong> Starting Date </strong> <%= booking.start_date %> - <strong> Departure Date </strong> <%= booking.end_date %> </p>
+            <% if booking.rating %>
+              <p> Rating: <i class="fa-solid fa-star"></i> <%= booking.rating %>
+            <% else %>
+              <%= form_with(url: rate_booking_path(booking), method: "patch") do |f| %>
+                <div class="btn-group">
+                  <%= f.label "Rating: " %>
+                  <%= f.select :rating, [1, 2, 3, 4, 5], :class => "btn btn-warning" %>
+                </div>
+                <%= f.submit(class: "btn btn-primary") %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
