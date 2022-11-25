@@ -16,10 +16,23 @@ class BookingsController < ApplicationController
   end
 
   def rate
+    @bookings = Booking.all
     @booking = Booking.find(params[:id])
     @booking.update(rating_params)
+    @brewery = Brewery.find(@booking.brewery_id)
     authorize @booking
-    
+    sum = 0
+    count = 0
+    @rating_sum = @bookings.each do |booking|
+      if booking.brewery == @brewery
+        sum += booking.rating
+        count += 1
+      end
+    end
+    @rating = sum.to_f / count.to_f
+    @brewery.rating = @rating
+    @brewery.save
+
     redirect_to profile_path
   end
 
