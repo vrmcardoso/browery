@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
     else
       render "breweries/show", status: :unprocessable_entity
     end
-
   end
 
   private
