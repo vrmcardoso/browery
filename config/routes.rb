@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
     resources :ratings, only: [:new, :create]
   end
-  resources :users, only: [:new, :create, :edit, :show]
+  resources :users, only: [:new, :create, :edit, :show, :update]
   get "profile", to: "pages#profile"
+
 end
