@@ -18,21 +18,26 @@
       <h1> Your Bookings </h1>
       <% @bookings.each do |booking| %>
         <div class="card-product my-3">
-          <img <%=cl_image_tag @breweries.find_by(id: booking.brewery_id).photos[0].key, class: "profile-photo"%>
+          <img <%=cl_image_tag @breweries.find_by(id: booking.brewery_id).photos[0].key%>
           <div class="card-product-infos">
-            <h2 class="my-2 pb-2"> <strong> Brewery: </strong> <%= @breweries.find_by(id: booking.brewery_id).name %> </h2>
-            <p class="my-2 pb-2"> <strong> Starting Date </strong> <%= booking.start_date %> - <strong> Departure Date </strong> <%= booking.end_date %> </p>
-            <% if booking.rating %>
-              <p> Rating: <i class="fa-solid fa-star"></i> <%= booking.rating %>
-            <% else %>
-              <%= form_with(url: rate_booking_path(booking), method: "patch") do |f| %>
-                <div class="btn-group">
-                  <%= f.label "Rating: " %>
-                  <%= f.select :rating, [1, 2, 3, 4, 5], :class => "btn btn-warning" %>
-                </div>
-                <%= f.submit(class: "btn btn-primary") %>
+            <div class="product-infos">
+              <h2 class="mt-2"> <strong> Brewery: </strong> <%= @breweries.find_by(id: booking.brewery_id).name %> </h2>
+              <p class=""> <strong> Starting Date </strong> <%= booking.start_date %> </p>
+              <p class=""> <strong> Departure Date </strong> <%= booking.end_date %> </p>
+            </div>
+            <div class="card-rating-button">
+              <% if booking.rating %>
+                <p> Rating: <i class="fa-solid fa-star"></i> <%= booking.rating %>
+              <% else %>
+                <%= form_with(url: rate_booking_path(booking), method: "patch") do |f| %>
+                  <div class="btn-group">
+                    <%= f.label "Rating: " %>
+                    <%= f.select :rating, [1, 2, 3, 4, 5], :class => "btn btn-warning" %>
+                  </div>
+                  <%= f.submit(class: "btn btn-primary") %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
       <% end %>
@@ -40,6 +45,7 @@
   </div>
   <p> <%= link_to "Edit profile", edit_user_path(current_user), class: "text-decoration-none" %> </p>
 </div>
+
 
 <div class="container mb-5">
   <h1 class="head-text">Your Breweries</h1>
