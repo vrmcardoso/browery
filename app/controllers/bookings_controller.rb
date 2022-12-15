@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     authorize @booking
     sum = 0
     count = 0
-    @rating_sum = @bookings.each do |booking|
+    @bookings.each do |booking|
       if booking.brewery == @brewery
         sum += booking.rating
         count += 1

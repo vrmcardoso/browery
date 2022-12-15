@@ -8,7 +8,6 @@ class BreweriesController < ApplicationController
   def index
     if params[:query].present?
       @breweries = policy_scope(Brewery.where("name ILIKE ?", "%#{params[:query]}%"))
-      #@breweries = policy_scope(Brewery)
     else
       @breweries = policy_scope(Brewery.all)
     end
